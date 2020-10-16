@@ -57,7 +57,7 @@ See https://docs.espressif.com/projects/esp-idf/en/release-v4.1/get-started/inde
 
 ```
 make menuconfig
-'''
+```
 
 Enter "Example configuration menu" and change parameters if you want.
 Bonding method (I/O Capability) "DISPLAY ONLY" allows you to set sercret number used on computer to pair.
@@ -67,7 +67,7 @@ After changing config save new skdconfig and run
 
 ```
 make && make flash && make monitor
-'''
+```
 
 Dive into sources to know how to change buttons GPIO, send mouse moves and clicks or other keyboard keys.
 Have fun with your new BLE Keyboard!
