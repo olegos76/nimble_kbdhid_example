@@ -1,4 +1,4 @@
-Bluetooth low energy HID Keyboard+mouse example on ESP32 chip using Apache Mynewt NimBLE stack.
+### Bluetooth low energy HID Keyboard+mouse example on ESP32 chip using Apache Mynewt NimBLE stack.
 
 Inspired by Apache NimBLE peripheral role example (ESP-IDF v4.1 examples/bluetooth/nimble/blehr)
 and ESP-IDF (v4.1) HID device example from examples/bluetooth/bluedroid/ble/ble_hid_device_demo.
@@ -10,7 +10,7 @@ Also this image switches LED when receives "CAPSLOCK on" event from GATT client.
 
 It uses ESP32's Bluetooth controller and NimBLE stack based BLE host.
 
-What is the point of using NimBLE stack on ESP32 instead of old Bluedroid stack?
+### What is the point of using NimBLE stack on ESP32 instead of old Bluedroid stack?
 1. First of all - size of the image. Following data was gained on ESP-IDF v4.1 with
 default log level INFO and framework default component settings.
   - ble_hid_device_demo on Bluedroid has size 698208 bytes without gpio buttons

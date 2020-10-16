@@ -1,0 +1,60 @@
+menu "Example Configuration"
+
+    choice EXAMPLE_USE_IO_TYPE
+        prompt "I/O Capability - bonding method"
+        default BLE_SM_IO_CAP_NO_IO
+        help
+            I/O capability of device.
+
+        config BLE_SM_IO_CAP_DISP_ONLY
+            bool "DISPLAY ONLY, display predefined 6 digits on client (central) side"
+        config BLE_SM_IO_CAP_NO_IO
+            bool "Just works, we will bond without questions"
+    endchoice
+
+    config EXAMPLE_IO_TYPE
+        int
+        default 0 if BLE_SM_IO_CAP_DISP_ONLY
+        default 3 if BLE_SM_IO_CAP_NO_IO
+
+    config EXAMPLE_BONDING
+        bool
+        default y
+        prompt "Use Bonding"
+        help
+            Use this option to enable/disable bonding.
+
+    config EXAMPLE_MITM
+        bool
+        default y
+        prompt "MITM security"
+        help
+            Use this option to enable/disable MITM security.
+
+    config EXAMPLE_USE_SC
+        bool
+        depends on BT_NIMBLE_SM_SC
+        default y
+        prompt "Use Secure Connection feature"
+        help
+            Use this option to enable/disable Security Manager Secure Connection 4.2 feature.
+
+    config EXAMPLE_DISP_PASSWD
+        int "password for bonding"
+        default "123456"
+        range 100000 999999
+        depends on BLE_SM_IO_CAP_DISP_ONLY
+        prompt "Bonding numeric password"
+        help
+            Password for bonding. Use digits only.
+
+    config BLINK_GPIO
+        int "Blink GPIO number for CAPSLOCK"
+        range 0 34
+        default 16
+        help
+            GPIO number (IOxx) to show caps lock on and off.
+            CapsLock LED does not work yet.
+            GPIOs 35-39 are input-only so cannot be used as outputs.
+
+endmenu
